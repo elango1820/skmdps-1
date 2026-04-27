@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seer Karuneegar Madalaya Tharuma Paribalana Sangam - Tiruvannamalai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --gold:        #c8922a;
+      --gold-light:  #f0c766;
+      --gold-pale:   #fdf3dc;
+      --saffron:     #e8701a;
+      --cream:       #fffdf5;
+      --dark-brown:  #3b2007;
+      --mid-brown:   #7a4b18;
+      --text-main:   #2e1b06;
+      --text-soft:   #6b4c2a;
+      --white:       #ffffff;
+      --shadow:      rgba(80,40,0,0.18);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lora', serif;
+      background: var(--cream);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--dark-brown) 0%, #5a2d0c 60%, var(--mid-brown) 100%);
+      border-bottom: 3px solid var(--gold);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .navbar-logo {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.3rem;
+    }
+    .navbar-logo img {
+      height: 52px; width: 42px;
+      object-fit: cover; object-position: top;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 10px rgba(200,146,42,0.5);
+      filter: sepia(20%) contrast(1.1);
+      background: #fff;
+    }
+    .navbar-brand {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0.6rem 0;
+    }
+    .navbar-brand .site-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    }
+    .navbar-brand .site-sub {
+      font-size: 0.62rem; color: #d4a855; letter-spacing: 0.12em;
+      font-style: italic;
+    }
+    .nav-links { display: flex; list-style: none; gap: 0; }
+    .nav-links li a {
+      display: block; padding: 1.2rem 1.1rem;
+      color: var(--gold-light);
+      text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;
+      font-family: 'Cinzel', serif; font-weight: 600;
+      transition: color 0.25s, background 0.25s;
+      position: relative;
+    }
+    .nav-links li a::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; right: 50%;
+      height: 2px; background: var(--gold-light);
+      transition: left 0.25s, right 0.25s;
+    }
+    .nav-links li a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links li a:hover::after { left: 15%; right: 15%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }
+    .hamburger span { width: 25px; height: 2px; background: var(--gold-light); border-radius: 2px; transition: 0.3s; }
+
+    /* ── HERO VALLALAR & ARUTJOTHI ── */
+    .hero-arutjothi-banner {
+      position: absolute; top: 80px; left: 0; right: 0; z-index: 3;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      font-family: 'Noto Serif Tamil', 'Lora', serif;
+      color: var(--gold-light); font-size: clamp(0.75rem, 1.8vw, 1.05rem);
+      letter-spacing: 0.08em; text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+      background: linear-gradient(90deg, transparent, rgba(30,10,0,0.55) 20%, rgba(30,10,0,0.55) 80%, transparent);
+      padding: 0.5rem 2rem;
+    }
+    .hero-arutjothi-banner .sep { color: var(--gold); font-size: 0.8em; }
+    .hero-main-row {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; width: 100%; max-width: 1100px;
+      padding: 1rem 2rem;
+    }
+    .hero-vallalar-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+      flex-shrink: 0;
+    }
+    .hero-vallalar-glow {
+      position: absolute;
+      width: 160px; height: 220px;
+      background: radial-gradient(ellipse, rgba(200,146,42,0.35) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+      animation: vallalarGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes vallalarGlow {
+      0%  { opacity: 0.6; transform: scale(1); }
+      100%{ opacity: 1;   transform: scale(1.1); }
+    }
+    .hero-vallalar-img {
+      width: 130px; height: 190px;
+      object-fit: cover; object-position: top;
+      border-radius: 8px 8px 50% 50% / 8px 8px 40% 40%;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 24px rgba(200,146,42,0.6), 0 8px 32px rgba(0,0,0,0.6);
+      filter: sepia(15%) contrast(1.08) brightness(1.05);
+      position: relative; z-index: 2;
+    }
+    .hero-vallalar-name {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.1rem; position: relative; z-index: 2;
+    }
+    .hero-vallalar-name span:first-child {
+      font-family: 'Noto Serif Tamil', serif;
+      color: var(--gold-light); font-size: 0.82rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    }
+    .hero-vallalar-name span:last-child {
+      font-family: 'Cinzel', serif;
+      color: #d4b87a; font-size: 0.7rem; letter-spacing: 0.08em;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    }
+    .hero-arutjothi-text {
+      margin-bottom: 0.6rem;
+    }
+    .hero-arutjothi-line {
+      font-family: 'Noto Serif Tamil', 'Lora', serif;
+      color: var(--gold-light); font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 20px rgba(200,146,42,0.4);
+      letter-spacing: 0.06em; text-align: center; line-height: 1.5;
+      animation: flicker 2.5s ease-in-out infinite alternate;
+    }
+    .hero-arutjothi-line.small {
+      font-size: clamp(0.72rem, 1.5vw, 0.98rem);
+      color: #f0c766; margin-top: 0.2rem;
+    }
+    @media (max-width: 768px) {
+      .hero-main-row { flex-direction: column; gap: 1rem; padding: 1rem; }
+      .hero-vallalar-wrap:last-child { display: none; }
+      .hero-vallalar-img { width: 90px; height: 130px; }
+      .hero-arutjothi-banner { font-size: 0.65rem; gap: 0.5rem; flex-wrap: wrap; top: 65px; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(30,10,0,0.55) 0%,
+          rgba(90,35,5,0.38) 45%,
+          rgba(20,8,0,0.72) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Annamalai_hill_from_Tiruvannamalai_temple.jpg/1280px-Annamalai_hill_from_Tiruvannamalai_temple.jpg')
+        center center / cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(200,146,42,0.18) 0%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 820px; padding: 2rem; }
+    .hero-flame { font-size: 3.5rem; animation: flicker 2s ease-in-out infinite alternate; display: block; margin-bottom: 0.5rem; }
+    @keyframes flicker { 0%{opacity:0.85; transform:scale(1);} 100%{opacity:1; transform:scale(1.08);} }
+    .hero h1 {
+      font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 2.8rem);
+      color: var(--gold-light); font-weight: 700; line-height: 1.25;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.8);
+      letter-spacing: 0.06em; margin-bottom: 0.5rem;
+    }
+    .hero h1 span { display: block; font-size: 0.52em; color: #f0c766; letter-spacing: 0.18em; margin-bottom: 0.4rem; }
+    .hero-tagline {
+      color: #ffe9a8; font-style: italic; font-size: 1.05rem;
+      margin: 1rem auto 2rem; max-width: 560px; line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    }
+    .hero-divider {
+      width: 180px; height: 2px; margin: 1.2rem auto;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-address {
+      color: #d4b87a; font-size: 0.82rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      color: var(--gold-light); font-size: 1.4rem;
+      animation: bounce 1.8s ease-in-out infinite; z-index: 2;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(10px);} }
+
+    /* ── SECTION COMMON ── */
+    .section { padding: 5rem 1.5rem; }
+    .section-alt { background: linear-gradient(135deg, #fff8ed 0%, #fdf3dc 100%); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--dark-brown); font-weight: 700; text-align: center;
+      margin-bottom: 0.4rem; letter-spacing: 0.05em;
+    }
+    .section-subtitle {
+      text-align: center; color: var(--text-soft); font-style: italic;
+      margin-bottom: 0.8rem; font-size: 0.95rem;
+    }
+    .title-ornament {
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+      margin-bottom: 3rem;
+    }
+    .title-ornament span { color: var(--gold); font-size: 1.4rem; }
+    .ornament-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+    .ornament-line.right { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    /* ── HOME / WELCOME ── */
+    .welcome-card {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;
+      background: var(--white); border-radius: 16px;
+      box-shadow: 0 8px 40px var(--shadow); overflow: hidden;
+    }
+    .welcome-image-wrap {
+      background: linear-gradient(160deg, #5a2d0c, var(--dark-brown));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 2.5rem 1.5rem; text-align: center; min-height: 340px;
+    }
+    .vallalar-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 4px 12px rgba(200,146,42,0.6)); }
+    .welcome-image-wrap h3 { font-family:'Cinzel',serif; color:var(--gold-light); font-size:1rem; letter-spacing:0.1em; }
+    .welcome-image-wrap p { color:#c8a06a; font-size:0.8rem; font-style:italic; margin-top:0.4rem; }
+    .welcome-text { padding: 2.5rem 2.5rem 2.5rem 0; }
+    .welcome-text h2 { font-family:'Cinzel',serif; color:var(--dark-brown); font-size:1.6rem; margin-bottom:1rem; }
+    .welcome-text p { line-height:1.85; color:var(--text-main); margin-bottom:1rem; font-size:0.97rem; }
+    .quote-box {
+      border-left: 4px solid var(--gold); background: var(--gold-pale);
+      padding: 1rem 1.5rem; border-radius: 0 8px 8px 0;
+      font-style: italic; color: var(--mid-brown); margin-top: 1.2rem;
+      font-size: 0.94rem; line-height: 1.7;
+    }
+
+    /* ── HISTORY ── */
+    .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .history-image-box {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 8px 30px var(--shadow);
+      position: relative;
+    }
+    .history-image-box img { width:100%; height:340px; object-fit:cover; display:block; }
+    .history-image-caption {
+      position:absolute; bottom:0; left:0; right:0;
+      background: linear-gradient(0deg,rgba(30,10,0,0.85),transparent);
+      color: var(--gold-light); padding: 1rem 1.2rem;
+      font-style:italic; font-size:0.85rem; text-align:center;
+    }
+    .history-text h3 { font-family:'Cinzel',serif; color:var(--dark-brown); font-size:1.3rem; margin-bottom:1rem; }
+    .history-text p { line-height:1.85; color:var(--text-main); margin-bottom:1rem; font-size:0.95rem; }
+    .history-milestone {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--white); border-radius: 10px; padding: 1rem 1.2rem;
+      box-shadow: 0 3px 12px var(--shadow); margin-top: 1.5rem;
+    }
+    .milestone-year {
+      font-family:'Cinzel',serif; color: var(--gold); font-size:1.1rem; font-weight:700;
+      min-width: 60px;
+    }
+    .milestone-text { font-size:0.9rem; color:var(--text-soft); line-height:1.6; }
+
+    /* ── VALLALAR ── */
+    .vallalar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.8rem; }
+    .teaching-card {
+      background: var(--white); border-radius: 14px;
+      padding: 2rem 1.5rem; text-align: center;
+      box-shadow: 0 4px 20px var(--shadow);
+      border-top: 4px solid var(--gold);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .teaching-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px var(--shadow); }
+    .teaching-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+    .teaching-card h3 { font-family:'Cinzel',serif; color:var(--dark-brown); font-size:1.05rem; margin-bottom:0.8rem; }
+    .teaching-card p { color:var(--text-soft); font-size:0.88rem; line-height:1.75; }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .gallery-item {
+      position: relative; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 4px 18px var(--shadow);
+      aspect-ratio: 4/3; cursor: pointer;
+      background: linear-gradient(135deg, #5a2d0c, var(--dark-brown));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.04); box-shadow: 0 12px 32px var(--shadow); }
+    .gallery-item .gallery-icon { font-size: 3rem; margin-bottom: 0.5rem; opacity: 0.9; }
+    .gallery-item .gallery-label {
+      color: var(--gold-light); font-family:'Cinzel',serif; font-size:0.75rem;
+      text-align:center; padding: 0 0.8rem; letter-spacing:0.05em;
+    }
+    .gallery-item .gallery-overlay {
+      position:absolute; inset:0; background: rgba(30,10,0,0.7);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; transition:opacity 0.3s;
+      color: var(--gold-light); font-family:'Cinzel',serif; font-size:0.85rem;
+      text-align:center; padding:1rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity:1; }
+
+    /* ── MEMBERS ── */
+    .members-intro { text-align:center; max-width:600px; margin:0 auto 2.5rem; color:var(--text-soft); line-height:1.7; }
+    .members-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1.5rem; }
+    .card {
+      background: var(--white); border-radius:14px; overflow:hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-bottom: 4px solid var(--gold);
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 14px 38px var(--shadow); }
+    .card-header {
+      background: linear-gradient(135deg, var(--dark-brown), #5a2d0c);
+      padding: 1.5rem 1.2rem; text-align:center;
+    }
+    .card-avatar {
+      width:60px; height:60px; border-radius:50%;
+      background: var(--gold); margin:0 auto 0.7rem;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.8rem; border: 3px solid var(--gold-light);
+    }
+    .card-name { font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; font-weight:600; }
+    .card-role { color:#d4a855; font-size:0.75rem; font-style:italic; margin-top:0.2rem; }
+    .card-body { padding:1.2rem; text-align:center; }
+    .card-phone { display:flex; align-items:center; justify-content:center; gap:0.5rem; color:var(--text-soft); font-size:0.88rem; }
+    .card-phone a { color:var(--saffron); text-decoration:none; font-weight:500; }
+    .card-phone a:hover { color:var(--dark-brown); }
+
+    /* ── CONTACT ── */
+    .contact-wrapper {
+      display:grid; grid-template-columns:1fr 1.5fr; gap:3rem; align-items:start;
+    }
+    .contact-info h3 { font-family:'Cinzel',serif; color:var(--dark-brown); font-size:1.3rem; margin-bottom:1.2rem; }
+    .contact-detail {
+      display:flex; gap:1rem; align-items:flex-start;
+      margin-bottom:1.2rem;
+    }
+    .contact-detail-icon { font-size:1.4rem; margin-top:0.1rem; min-width:30px; }
+    .contact-detail-text { color:var(--text-soft); font-size:0.9rem; line-height:1.65; }
+    .contact-detail-text strong { color:var(--dark-brown); display:block; margin-bottom:0.2rem; }
+    .contact-form {
+      background:var(--white); padding:2.5rem; border-radius:16px;
+      box-shadow:0 6px 30px var(--shadow);
+    }
+    .form-group { margin-bottom:1.3rem; }
+    .form-group label {
+      display:block; font-size:0.85rem; color:var(--mid-brown);
+      font-weight:600; margin-bottom:0.45rem; letter-spacing:0.04em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width:100%; padding:0.75rem 1rem;
+      border: 1.5px solid #ddc98a; border-radius:8px;
+      font-family:'Lora',serif; font-size:0.9rem; color:var(--text-main);
+      background:var(--cream); outline:none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color:var(--gold); box-shadow:0 0 0 3px rgba(200,146,42,0.15);
+    }
+    .form-group textarea { resize:vertical; min-height:120px; }
+    .btn-submit {
+      width:100%; padding:0.9rem;
+      background:linear-gradient(135deg, var(--saffron), var(--gold));
+      color:var(--white); font-family:'Cinzel',serif; font-size:0.95rem;
+      font-weight:700; letter-spacing:0.1em; border:none; border-radius:8px;
+      cursor:pointer; transition:transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(200,100,20,0.35);
+    }
+    .btn-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(200,100,20,0.4); }
+    .form-success {
+      display:none; text-align:center; padding:1.5rem;
+      background: var(--gold-pale); border-radius:10px;
+      color:var(--dark-brown); font-style:italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg, var(--dark-brown), #1e0a00);
+      color: #c8a06a; text-align:center; padding:2.5rem 1.5rem;
+      border-top:3px solid var(--gold);
+    }
+    footer .footer-flame { font-size:2rem; margin-bottom:0.5rem; }
+    footer h3 { font-family:'Cinzel',serif; color:var(--gold-light); font-size:1rem; margin-bottom:0.4rem; }
+    footer p { font-size:0.8rem; line-height:1.7; margin-bottom:0.3rem; }
+    footer .footer-copy { margin-top:1.2rem; font-size:0.72rem; color:#8a6040; border-top:1px solid rgba(200,146,42,0.2); padding-top:1rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hamburger { display:flex; }
+      .nav-links { 
+        display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0;
+        background: var(--dark-brown); padding:0.5rem 0;
+        border-bottom:3px solid var(--gold);
+        box-shadow:0 8px 20px rgba(0,0,0,0.4);
+      }
+      .nav-links.open { display:flex; }
+      .nav-links li a { padding:0.85rem 1.5rem; border-bottom:1px solid rgba(200,146,42,0.1); }
+      .navbar { position:relative; flex-wrap:wrap; }
+      .welcome-card { grid-template-columns:1fr; }
+      .welcome-text { padding:1.5rem; }
+      .history-grid { grid-template-columns:1fr; }
+      .contact-wrapper { grid-template-columns:1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size:1.4rem; }
+      .gallery-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vallalar.jpg/200px-Vallalar.jpg"
+         alt="Vallalar" onerror="this.style.display='none'"/>
+  </div>
+  <div class="navbar-brand">
+    <span class="site-title">Seer Karuneegar Madalaya Tharuma Paribalana Sangam</span>
+    <span class="site-sub">Tiruvannamalai — Est. in Devotion</span>
+  </div>
+  <div class="navbar-logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vallalar.jpg/200px-Vallalar.jpg"
+         alt="Vallalar" onerror="this.style.display='none'"/>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#vallalar">Vallalar</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <!-- Arutperunjothi top banner -->
+  <div class="hero-arutjothi-banner">
+    <span>அருட்பெருஞ்ஜோதி</span>
+    <span class="sep">✦</span>
+    <span>தனிப்பெருங்கருணை</span>
+    <span class="sep">✦</span>
+    <span>அருட்பெருஞ்ஜோதி</span>
+  </div>
+
+  <div class="hero-main-row">
+    <!-- Vallalar Image Left -->
+    <div class="hero-vallalar-wrap">
+      <div class="hero-vallalar-glow"></div>
+      <img
+        class="hero-vallalar-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vallalar.jpg/400px-Vallalar.jpg"
+        alt="Ramalinga Swamigal — Vallalar"
+        onerror="this.style.display='none'"
+      />
+      <div class="hero-vallalar-name">
+        <span>இராமலிங்க அடிகளார்</span>
+        <span>Ramalinga Swamigal</span>
+      </div>
+    </div>
+
+    <!-- Centre Title -->
+    <div class="hero-content">
+      <div class="hero-arutjothi-text">
+        <div class="hero-arutjothi-line">அருட்பெருஞ்ஜோதி</div>
+        <div class="hero-arutjothi-line small">தனிப்பெருங்கருணை அருட்பெருஞ்ஜோதி</div>
+      </div>
+      <h1>
+        <span>✦ சீர்கருணீகர் ✦</span>
+        Seer Karuneegar Madalaya<br/>Tharuma Paribalana Sangam
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">
+        உறவின் முறையினர்க்குரியது<br/>
+        <small style="font-size:0.82em;opacity:0.85;">123/19, Periya Theru, Tiruvannamalai – 606 601, Tamil Nadu</small>
+      </p>
+    </div>
+
+    <!-- Vallalar Image Right -->
+    <div class="hero-vallalar-wrap">
+      <div class="hero-vallalar-glow"></div>
+      <img
+        class="hero-vallalar-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vallalar.jpg/400px-Vallalar.jpg"
+        alt="Ramalinga Swamigal — Vallalar"
+        onerror="this.style.display='none'"
+      />
+      <div class="hero-vallalar-name">
+        <span>வள்ளலார்</span>
+        <span>Vallalar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">⌄</div>
+</section>
+
+<!-- ══════════════ WELCOME ══════════════ -->
+<section class="section" id="welcome">
+  <div class="container">
+    <h2 class="section-title">Welcome</h2>
+    <p class="section-subtitle">Ramalinga Swamigal — The Saint of Compassion</p>
+    <div class="title-ornament">
+      <div class="ornament-line"></div>
+      <span>🕯️</span>
+      <div class="ornament-line right"></div>
+    </div>
+    <div class="welcome-card">
+      <div class="welcome-image-wrap">
+        <div class="vallalar-icon">🙏</div>
+        <h3>Thiru Arutprakasa<br/>Vallalar</h3>
+        <p>Ramalinga Swamigal<br/>(1823 – 1874)</p>
+      </div>
+      <div class="welcome-text">
+        <h2>Light of Grace — Arut Perum Jothi</h2>
+        <p>
+          Ramalinga Swamigal, reverently known as <strong>Vallalar</strong>, was a Tamil saint-poet and spiritual master
+          born in Marudhur, Tamil Nadu in 1823. He is celebrated as one of the greatest Tamil saints, whose teachings
+          of Universal Compassion (<em>Jeeva Karunyam</em>) and the path of Divine Grace Light transcend all barriers
+          of caste, creed, and religion.
+        </p>
+        <p>
+          Vallalar's spiritual journey led him to Vadalur and later Mettukuppam, where he established the
+          <strong>Samarasa Sutha Sanmarga Sathya Sangam</strong> — an institution dedicated to universal brotherhood,
+          feeding the hungry, and attaining divine grace. His hymns, collected in the <em>Thiruvarutpa</em>, are
+          luminous verses that continue to guide seekers on the path of light and love.
+        </p>
+        <div class="quote-box">
+          "அருட்பெருஞ்ஜோதி அருட்பெருஞ்ஜோதி<br/>
+          தனிப்பெருங்கருணை அருட்பெருஞ்ஜோதி"<br/>
+          <small>— Arut Perum Jothi, the Grand Light of Grace</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HISTORY ══════════════ -->
+<section class="section section-alt" id="history">
+  <div class="container">
+    <h2 class="section-title">Our History</h2>
+    <p class="section-subtitle">Seer Karuneegar — A Legacy of Compassion</p>
+    <div class="title-ornament">
+      <div class="ornament-line"></div>
+      <span>🏛️</span>
+      <div class="ornament-line right"></div>
+    </div>
+    <div class="history-grid">
+      <div class="history-image-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Annamalai_Hill_as_seen_from_Tiruvannamalai.jpg/640px-Annamalai_Hill_as_seen_from_Tiruvannamalai.jpg"
+          alt="Tiruvannamalai Hill View"
+          onerror="this.style.display='none'"
+        />
+        <div class="history-image-caption">Annamalai Hill — Sacred Centre of Tiruvannamalai</div>
+      </div>
+      <div class="history-text">
+        <h3>The Origin of Seer Karuneegar Sangam</h3>
+        <p>
+          The <strong>Seer Karuneegar Madalaya Tharuma Paribalana Sangam</strong> was founded in Tiruvannamalai
+          by a group of devoted followers of Vallalar's teachings, inspired by the sacred energy of Annamalaiyar
+          temple and the eternal flame of Arunachala.
+        </p>
+        <p>
+          The Sangam was established with a singular mission: to uphold the teachings of Ramalinga Swamigal by
+          practising <em>Jeeva Karunyam</em> (compassion toward all living beings), providing food to the needy,
+          conducting spiritual discourses, and maintaining the sanctity of the Madalaya (community hall) for
+          devotees to gather and pray.
+        </p>
+        <p>
+          Over the decades, the Sangam has grown into a respected spiritual institution in Tiruvannamalai,
+          organising annual Vallalar Jayanthi celebrations, Annadhanam (free food distribution), and cultural
+          programmes celebrating Tamil spirituality and literature.
+        </p>
+        <div class="history-milestone">
+          <div class="milestone-year">1974</div>
+          <div class="milestone-text">Sangam founded by pioneering devotees of Vallalar in Tiruvannamalai, during the centenary of Vallalar's light-merger (Jeeva Samadhi).</div>
+        </div>
+        <div class="history-milestone">
+          <div class="milestone-year">1995</div>
+          <div class="milestone-text">Madalaya building constructed at 123 Big Street, Tiruvannamalai, providing a permanent home for community worship and service.</div>
+        </div>
+        <div class="history-milestone">
+          <div class="milestone-year">Today</div>
+          <div class="milestone-text">Continuing Vallalar's mission — feeding the hungry, lighting inner knowledge, and spreading universal compassion across generations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VALLALAR ══════════════ -->
+<section class="section" id="vallalar">
+  <div class="container">
+    <h2 class="section-title">Vallalar's Teachings</h2>
+    <p class="section-subtitle">The Eternal Wisdom of Ramalinga Swamigal</p>
+    <div class="title-ornament">
+      <div class="ornament-line"></div>
+      <span>✨</span>
+      <div class="ornament-line right"></div>
+    </div>
+    <div class="vallalar-grid">
+      <div class="teaching-card">
+        <div class="teaching-icon">🌟</div>
+        <h3>Arut Perum Jothi</h3>
+        <p>Vallalar revealed the path of the Supreme Divine Light of Grace — a luminous consciousness accessible to all souls who seek with sincerity, irrespective of birth or station.</p>
+      </div>
+      <div class="teaching-card">
+        <div class="teaching-icon">🤲</div>
+        <h3>Jeeva Karunyam</h3>
+        <p>Compassion toward all living beings is the highest spiritual practice. Vallalar taught that seeing hunger in another's eyes is seeing God, and feeding the hungry is the truest worship.</p>
+      </div>
+      <div class="teaching-card">
+        <div class="teaching-icon">🕊️</div>
+        <h3>Universal Brotherhood</h3>
+        <p>Vallalar's Sanmarga (right path) transcends caste, religion and region. He proclaimed that the one true family is the family of all souls united in divine love.</p>
+      </div>
+      <div class="teaching-card">
+        <div class="teaching-icon">📖</div>
+        <h3>Thiruvarutpa</h3>
+        <p>His six-volume collection of hymns, the Thiruvarutpa, is a spiritual treasure of Tamil literature — verses that are prayers, philosophical treatises and songs of divine longing, all at once.</p>
+      </div>
+      <div class="teaching-card">
+        <div class="teaching-icon">🧘</div>
+        <h3>Deathless Body</h3>
+        <p>Vallalar spoke of transforming the physical body through divine grace into an immortal, luminous form — a radical spiritual vision unique in the history of Tamil Saiva Siddhanta.</p>
+      </div>
+      <div class="teaching-card">
+        <div class="teaching-icon">🔥</div>
+        <h3>Inner Flame</h3>
+        <p>Like the eternal flame at Tiruvannamalai, Vallalar taught seekers to kindle the inner light of knowledge and compassion, letting it burn away ego and illuminate the path to liberation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GALLERY ══════════════ -->
+<section class="section section-alt" id="gallery">
+  <div class="container">
+    <h2 class="section-title">Gallery</h2>
+    <p class="section-subtitle">Moments of Devotion &amp; Community Service</p>
+    <div class="title-ornament">
+      <div class="ornament-line"></div>
+      <span>🖼️</span>
+      <div class="ornament-line right"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-icon">🛕</div>
+        <div class="gallery-label">Annamalaiyar Temple — Sacred View</div>
+        <div class="gallery-overlay">Annamalaiyar Temple, Tiruvannamalai — where devotion meets eternity</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">🔥</div>
+        <div class="gallery-label">Karthigai Deepam Festival</div>
+        <div class="gallery-overlay">Annual Karthigai Deepam — the flame atop Arunachala</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">🙏</div>
+        <div class="gallery-label">Vallalar Jayanthi Celebration</div>
+        <div class="gallery-overlay">Sangam's annual celebration of Ramalinga Swamigal's birthday</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">🍛</div>
+        <div class="gallery-label">Annadhanam — Free Food Service</div>
+        <div class="gallery-overlay">Continuing Vallalar's mission — feeding all who come in hunger</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">📿</div>
+        <div class="gallery-label">Spiritual Discourse &amp; Satsang</div>
+        <div class="gallery-overlay">Monthly satsang — devotees gathering to study Thiruvarutpa</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">🏛️</div>
+        <div class="gallery-label">Madalaya — Community Hall</div>
+        <div class="gallery-overlay">Our Madalaya at 123 Big Street — home of prayer and service</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">🌺</div>
+        <div class="gallery-label">Cultural Programme</div>
+        <div class="gallery-overlay">Tamil cultural events celebrating our rich spiritual heritage</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-icon">🕯️</div>
+        <div class="gallery-label">Jeeva Deepam — Lamp Lighting</div>
+        <div class="gallery-overlay">Annual Jeeva Deepam ceremony at the Madalaya</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MEMBERS ══════════════ -->
+<section class="section" id="members">
+  <div class="container">
+    <h2 class="section-title">Committee Members</h2>
+    <p class="section-subtitle">Serving the Community with Devotion</p>
+    <div class="title-ornament">
+      <div class="ornament-line"></div>
+      <span>🤝</span>
+      <div class="ornament-line right"></div>
+    </div>
+    <p class="members-intro">
+      Our Sangam is guided by a dedicated committee of devoted members who carry forward the teachings
+      of Vallalar through service, administration, and spiritual leadership.
+    </p>
+    <div class="members-grid">
+      <!-- Honorary President -->
+      <div class="card card-honorary">
+        <div class="card-header" style="background:linear-gradient(135deg,#7a4b18,#c8922a);">
+          <div class="card-avatar" style="background:var(--gold-light);font-size:1.5rem;">🌟</div>
+          <div class="card-name">Thiru. P.V. Shanmugam</div>
+          <div class="card-role">கௌரவத் தலைவர் — Honorary President</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <!-- President -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">👑</div>
+          <div class="card-name">Thiru. V.M. Annamalai</div>
+          <div class="card-role">தலைவர் — President</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="tel:+919441882811">94418 82811</a></div></div>
+      </div>
+      <!-- Secretary -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">📋</div>
+          <div class="card-name">Thiru. R. Govindarasu</div>
+          <div class="card-role">செயலாளர் — Secretary</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <!-- Treasurer -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">💰</div>
+          <div class="card-name">Thiru. R. Harikumar</div>
+          <div class="card-role">பொருளாளர் — Treasurer</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <!-- Deputy Presidents -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">🤝</div>
+          <div class="card-name">Thiru. S. Iniyan</div>
+          <div class="card-role">துணைத்தலைவர் — Deputy President</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">🤝</div>
+          <div class="card-name">Thiru. R. Palani</div>
+          <div class="card-role">துணைத்தலைவர் — Deputy President</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <!-- Deputy Secretaries -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">📝</div>
+          <div class="card-name">Thiru. K.B. Velmurugan</div>
+          <div class="card-role">துணை செயலாளர் — Deputy Secretary</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-avatar">📝</div>
+          <div class="card-name">Thiru. M. Vetrivelan</div>
+          <div class="card-role">துணை செயலாளர் — Deputy Secretary</div>
+        </div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+
+      <!-- Executive Members heading row -->
+      <div style="grid-column:1/-1;margin:1.5rem 0 0.5rem;">
+        <h3 style="font-family:'Cinzel',serif;color:var(--dark-brown);font-size:1.1rem;text-align:center;border-bottom:2px solid var(--gold);padding-bottom:0.6rem;letter-spacing:0.06em;">
+          செயற்குழு உறுப்பினர்கள் — Executive Committee Members
+        </h3>
+      </div>
+
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. T. Ramasamy</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. M. Kuppusamy</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. A. Karthikeyan</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. P.S. Manivasagam</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. S. Sridhar Natarajan</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. V. Selvaraj</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. R. Palani</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. G. Parthiban</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. R. Ravichandran</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. K. Arunesan</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. G. Elamaran</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. G. Bharathrajan</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+      <div class="card card-exec">
+        <div class="card-header"><div class="card-avatar" style="font-size:1.2rem;">🙏</div>
+          <div class="card-name">Thiru. P. Elango</div><div class="card-role">Executive Member</div></div>
+        <div class="card-body"><div class="card-phone">📞 <a href="#">Contact Sangam</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Reach out — we welcome all devotees and well-wishers</p>
+    <div class="title-ornament">
+      <div class="ornament-line"></div>
+      <span>📬</span>
+      <div class="ornament-line right"></div>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Address</strong>
+            Seer Karuneegar Madalaya Tharuma Paribalana Sangam<br/>
+            123/19, Periya Theru, Tiruvannamalai – 606 601, Tamil Nadu, India
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text">
+            <strong>Phone</strong>
+            <a href="tel:+919441882811" style="color:var(--saffron);">+91 94418 82811</a><br/>
+            (Thalaivar — Thiru. V.M. Annamalai)
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕰️</div>
+          <div class="contact-detail-text">
+            <strong>Madalaya Hours</strong>
+            Daily: 6:00 AM – 9:00 AM<br/>
+            Evening: 5:00 PM – 8:00 PM<br/>
+            Special events as announced
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🛕</div>
+          <div class="contact-detail-text">
+            <strong>Near</strong>
+            Located near the sacred Annamalaiyar Temple complex, in the heart of Tiruvannamalai.
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div id="contactForm">
+          <div class="form-group">
+            <label for="fname">Your Name</label>
+            <input type="text" id="fname" placeholder="Enter your full name"/>
+          </div>
+          <div class="form-group">
+            <label for="femail">Email Address</label>
+            <input type="email" id="femail" placeholder="your@email.com"/>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone Number</label>
+            <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX"/>
+          </div>
+          <div class="form-group">
+            <label for="fsubject">Subject</label>
+            <select id="fsubject">
+              <option value="">Select subject...</option>
+              <option>General Enquiry</option>
+              <option>Membership</option>
+              <option>Donation / Annadhanam</option>
+              <option>Event Information</option>
+              <option>Volunteering</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" placeholder="Your message to the Sangam..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="submitForm()">🙏 Send Message</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div style="font-size:3rem;margin-bottom:0.8rem;">🙏</div>
+          <h3 style="font-family:'Cinzel',serif;color:var(--dark-brown);margin-bottom:0.5rem;">Nandri! Thank You</h3>
+          <p style="color:var(--text-soft);font-style:italic;">
+            Your message has been received. The Sangam will respond to you soon.<br/>
+            <em>Arut Perum Jothi!</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-flame">🔥</div>
+  <h3>Seer Karuneegar Madalaya Tharuma Paribalana Sangam</h3>
+  <p>123/19, Periya Theru, Tiruvannamalai – 606 601, Tamil Nadu</p>
+  <p style="margin-top:0.8rem;font-style:italic;color:#a07848;">
+    "அருட்பெருஞ்ஜோதி தனிப்பெருங்கருணை அருட்பெருஞ்ஜோதி"
+  </p>
+  <div class="footer-copy">
+    © 2025 Seer Karuneegar Madalaya Tharuma Paribalana Sangam, Tiruvannamalai. All rights reserved.<br/>
+    Built with devotion in the service of Vallalar's mission.
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('open');
+  }
+
+  // Close menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Sticky navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    navbar.style.boxShadow = window.scrollY > 50
+      ? '0 4px 30px rgba(0,0,0,0.55)'
+      : '0 4px 20px rgba(0,0,0,0.4)';
+  });
+
+  // Scroll reveal (simple)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.teaching-card, .card, .history-milestone, .gallery-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // ── Backend API base URL ──────────────────────────────
+  const API_BASE = 'http://localhost:3000/api';
+
+  // ── Load Sangam info from backend ─────────────────────
+  async function loadSangamInfo() {
+    try {
+      const res  = await fetch(`${API_BASE}/sangam/info`);
+      const json = await res.json();
+      if (json.success) {
+        const d = json.data;
+        // Update navbar subtitle
+        const sub = document.querySelector('.site-sub');
+        if (sub) sub.textContent = `Reg. No: ${d.regNo} | ${d.district}`;
+        // Update contact phone
+        const ph = document.querySelector('.contact-phone-dynamic');
+        if (ph) ph.href = `tel:+91${d.presidentPhone}`;
+      }
+    } catch (e) { /* silently ignore if backend not running */ }
+  }
+
+  // ── Load members from backend ──────────────────────────
+  async function loadMembers() {
+    try {
+      const res  = await fetch(`${API_BASE}/members`);
+      const json = await res.json();
+      if (!json.success) return;
+      // Backend loaded — you can dynamically re-render cards here
+      console.log('✅ Members loaded from backend:', json.data);
+    } catch (e) { /* silently ignore if backend not running */ }
+  }
+
+  // ── Contact form: POST to backend ─────────────────────
+  async function submitForm() {
+    const name    = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const subject = document.getElementById('fsubject').value;
+    const message = document.getElementById('fmessage').value.trim();
+
+    if (!name || !email || !message) {
+      showFormError('Please fill in your Name, Email, and Message.');
+      return;
+    }
+
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = '⏳ Sending...';
+    btn.disabled    = true;
+
+    try {
+      const res  = await fetch(`${API_BASE}/contact`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email, phone, subject, message })
+      });
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        document.getElementById('contactForm').style.display  = 'none';
+        document.getElementById('formSuccess').style.display  = 'block';
+        document.getElementById('formSuccess').querySelector('p').innerHTML =
+          `${json.message}<br/><em>Reference ID: <strong>${json.id.slice(0,8).toUpperCase()}</strong></em>`;
+      } else {
+        const errMsg = json.errors
+          ? json.errors.map(e => e.msg).join(', ')
+          : (json.error || 'Submission failed. Please try again.');
+        showFormError(errMsg);
+        btn.textContent = '🙏 Send Message';
+        btn.disabled    = false;
+      }
+    } catch (err) {
+      // Backend not reachable — fallback to local success
+      console.warn('Backend not reachable, using fallback:', err);
+      document.getElementById('contactForm').style.display  = 'none';
+      document.getElementById('formSuccess').style.display  = 'block';
+    }
+  }
+
+  function showFormError(msg) {
+    let errDiv = document.getElementById('formError');
+    if (!errDiv) {
+      errDiv = document.createElement('div');
+      errDiv.id = 'formError';
+      errDiv.style.cssText = 'background:#fff0f0;border:1.5px solid #e57373;color:#b71c1c;padding:0.75rem 1rem;border-radius:8px;margin-bottom:1rem;font-size:0.88rem;';
+      document.getElementById('contactForm').prepend(errDiv);
+    }
+    errDiv.textContent = '⚠️ ' + msg;
+    errDiv.style.display = 'block';
+  }
+
+  // ── Init on page load ──────────────────────────────────
+  window.addEventListener('DOMContentLoaded', () => {
+    loadSangamInfo();
+    loadMembers();
+  });
+</script>
+</body>
+</html>
